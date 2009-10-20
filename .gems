@@ -1,0 +1,4 @@
+authlogic --version 2.1.2 --source http://gemcutter.org
+josevalim-inherited_resources --version 0.9.1 --source gems.github.com
+will_paginate --version 2.3.11 --source http://gems.github.com
+rest-client --version 1.0.3

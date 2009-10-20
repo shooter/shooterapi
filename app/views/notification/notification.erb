@@ -1,0 +1,15 @@
+Dear <%= @shooter.user.email %>,
+
+Shooter has found something that you should care about. 
+
+When you're done with it, you can delete it here:
+
+<%= url_for([:my, @shooter]) %>
+
+It looks like this:
+
+= = = = = = = = = = = = =
+
+<%= @shooter.payload %>
+
+= = = = = = = = = = = = =

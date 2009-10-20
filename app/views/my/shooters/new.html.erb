@@ -1,0 +1,13 @@
+<div class="dashboard">
+  <h2>Start Shooting!</h2>
+
+  <p>All a Shooter needs is a name. An API key will be generated automatically.</p>
+
+  <% form_for [:my, @shooter] do |f| -%>
+    <fieldset>
+      <%= f.label :name %> <%= f.text_field :name %> <br/>
+    </fieldset>
+    <%= f.submit "Shoot!" %>
+  <% end -%>
+
+</div>

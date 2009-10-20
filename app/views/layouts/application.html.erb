@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Shooter — Shooting Exceptions, One at a Time</title>
+    <%= stylesheet_link_tag "emastic/reset-min", "emastic/grid-min", "emastic/type-min", "formy/form.css", "application" %>
+    <%= javascript_include_tag 'jquery', 'application' %>
+  </head>
+  
+  <body>
+    <div class="header">
+      <h1><%= link_to "Shooter", root_path %></h1>
+      <em>Shooting Exceptions, One at a Time</em>
+      
+      <%- if logged_in? -%>
+        <ul>
+          <li><%= link_to "My Shooters", my_shooters_path %></li>
+          <li><%= link_to "Sign Out", logout_path %></li>
+        </ul>
+      <%- end -%>
+    </div>
+    
+    <% title = yield :title %>
+    <%= "<div class=\"title\"><h2>#{title}</h2></div>" unless title.blank? %>
+
+    <div class="main">    
+      <%= yield %>
+    </div>
+    
+    <div class="footer">
+      <p>Shooter is opinionated software. It's free, and open source, so you can change it if you don't like it.</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+div.main { margin: 1em; width: 95%; margin-top: 0; margin-bottom: 0; min-height: 500px;}
+div.main div { padding: 1em; }
+
+/* headings */
+h1, h2, h3, h4, h5, h6 { font-family: Helvetica, Arial, sans-serif; }
+
+/* forms */
+
+label { font-weight: bold; }
+input { padding: 0.5em;}
+
+textarea:focus,input[type="text"],input[type="password"] { border: 1px solid #DDD; }
+textarea:focus,input[type="text"]:focus,input[type="password"]:focus { background-color: #EEF; border: 1px solid #000; }
+
+fieldset { border: 0; padding: 0.5em; }
+
+
+/* signup form */
+
+div.signup { background-color: #DDE; min-height: 500px;}
+div.signup h2 { margin-bottom: 0.3em;}
+div.signup label { display: block;  }
+div.signup fieldset { margin-bottom: 0;}
+input[type="submit"] { margin-left: 0.5em; background-color: #ddf; border: 1px solid #446; cursor: pointer;}
+div.signup p { margin-left: 0.5em; margin-top: 1em;}
+
+/* header */
+
+div.header { background-color:	#446; padding: 1.1em; border-bottom: 4px solid #DDF; padding-bottom: 0.5em;}
+div.header h1 { font-family: Helvetica, Arial, Sans-Serif; display: inline; color: #DDD;}
+div.header h1 a { color: #DDD;}
+div.header em { color: #CCC; }
+div.header ul { display: inline; float: right;}
+div.header ul li { display: inline; margin-right: 1em;}
+div.header ul a { color: #DDD;}
+
+/* footer */
+div.footer { background-color: #555; padding: 1em; }
+div.footer p, div.footer p a { color: #ddd; }
+
+/* main index */
+
+div.title h2 { background-color: #eee; padding: 1em; border-bottom: 2px solid #DDD; margin-bottom: 0; }
+div.content table { width: 100%; }
+div.content table tr.headings { border-bottom: 1px solid #111;}
+div.content table tr.headings:hover { background-color: transparent; }
+div.content table tr.headings th.actions { border-right: 0; }
+div.content table tr th { color: #999; font-size: 2em; padding-left: 0.5em;}
+div.content table tr td { padding: 1em; }
+div.content table tr td a.delete { color: #999; }
+div.content table tr.odd { background-color: #eee; }
+div.content table tr:hover { background-color: #ddd; }
+
+
+div.title h2 ul { margin-left: 0; float: right;}
+div.title h2 ul li { list-style-type: none; font-size: 0.5em; font-weight: normal;}
+div.title h2 ul li a { color: #fff; width: 20em; padding: 1em; background-color: #446; border:2px solid #DDF;}
+div.title h2 ul li a:hover { color: #fff; width: 20em; padding: 1em; background-color: #113;}
+
+
+/* showing shooter */
+
+div.sidebar label { width: 100%; position: relative;}
+
+ul.filters li strong { font-size: 1.2em; color: #333;}
+
+div.shooter-payload { background-color: #FFFFCC; border-top: 2px solid #FFCC00; float:left; position: relative; width: 100%;}
+div.main div.shoot { float: right; margin: 0; padding: 0; width: 10em;}
+div.main div.shoot form { float: right;}
+div.main div.shoot input { border: 0; background-color: #ccc;  border-bottom: 0; cursor: pointer; float: right; }
+div.main div.shoot input:hover { background-color: #333; color: #fff; }
+div.shooter div.shooter-display {  margin-left: 23em; }
+div.shooter div.shooter-display h3 { display: inline; float: left; margin-bottom: 0.6em; }
+
+div.sidebar { background-color: #ccf; }
+
+/* cheating */
+
+.hidden { display: none;}

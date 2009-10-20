@@ -1,0 +1,86 @@
+<%- content_for :title do -%>Shooter: <%= @shooter.name %><%- end -%>
+
+<div class="shooter">
+  
+  <div class="dl20 sidebar">
+    <h2>Filters</h2>
+    
+    <%- if @shooter.mufflers.empty? -%>
+      <p>You haven't added any filters yet.</p>
+    <%- else -%>
+      <ul class="filters">
+        <%- @shooter.mufflers.each do |muffler| -%>
+          <li><%= "<strong>/</strong>#{muffler.pattern}<strong>/</strong>" %> <%= link_to "Delete", [:my, @shooter, muffler], :method => :delete %></li>
+        <%- end -%>
+      </ul>
+    <%- end -%>
+
+    
+    <p>Filters let you ignore payloads that you don't care about. If a payload request arrives that matches one of the filters below, it will be discarded and you'll never hear about it. You can use Ruby Regular Expressions.</p>
+    
+    <% form_for [:my, @shooter, @muffler] do |f| -%>
+      <fieldset>
+        /<%= f.text_field :pattern, :size => 25 %>/
+        <br/>
+      </fieldset>
+      <%= f.submit "Save Filter", :class => 'hidden' %>
+    <% end -%>
+    
+    <h3>Webhooks</h3>
+    
+    <%- if @shooter.webhooks.empty? -%>
+      <p>You haven't added any webhooks yet.</p>
+    <%- else -%>
+      <ul class="webhooks">
+        <%- @shooter.webhooks.each do |webhook| -%>
+          <li><%= webhook.url %> <%= link_to 'Delete', [:my, @shooter, webhook], :method => :delete %></li>
+        <%- end -%>
+      </ul>
+    <%- end -%>
+    
+    <p>Webhooks let you send the payload to a third party service before it is deleted.</p>
+    
+    <%- form_for [:my, @shooter, @webhook] do |f| -%>
+      <fieldset>
+        <%= f.label :url, "Add a Webhook URL:" %> <%= f.text_field :url %> <br/>
+      </fieldset>
+      <%= f.submit "Save Webhook", :class => 'hidden' %> 
+    <%- end -%>
+    
+    <h3>API Access</h3>
+    
+    <p><strong>Shooter API Key: </strong><br /> <%= @shooter.shortcode_url %></p>
+    
+    <p><strong>PUT to this URL:</strong><br /> <%= link_to api_shooter_url(@shooter), api_shooter_url(@shooter) %></p>
+    
+  </div>
+  
+  <div class="fluid shooter-display">
+    <h3>Payload Contents</h3>
+    
+    <%- if !@shooter.payload.blank? -%>
+      <div class="shoot">        
+        <% form_for @shooter, :url => shoot_my_shooter_path, :html => {:method => :delete} do |f| -%>
+          <%= f.submit "Shoot!" %>
+        <% end -%>
+      </div>
+    <%- end -%>
+      
+      <div class="shooter-payload">
+        <%- if @shooter.payload.blank? -%>
+          <p>Your Shooter payload is empty. This is good. When it is filled, the contents will appear here.</p>
+
+          <p>You can test the service out by making a PUT request to:</p>
+          
+          <p><%= link_to api_shooter_url(@shooter), api_shooter_url(@shooter) %></p>
+          
+          <p>curl makes this easy:</p>
+          
+          <p><blockquote><code>curl -X PUT -d "payload=test payload" <%= api_shooter_url(@shooter) %></code></blockquote></p>
+        <%- else -%>
+          <%= simple_format @shooter.payload %>
+        <%- end -%>
+      </div>
+  </div>
+  
+</div>

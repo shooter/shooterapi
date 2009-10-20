@@ -1,0 +1,13 @@
+<div class="dashboard">
+  <h2>Start Shooting!</h2>
+
+  <h3>Create a New Shooter:</h3>
+
+  <% form_for [:my, @shooter] do |f| -%>
+    <fieldset>
+      <%= f.label :name %> <%= f.text_field :name %> <br/>
+    </fieldset>
+    <%= f.submit "Shoot!" %>
+  <% end -%>
+
+</div>

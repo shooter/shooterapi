@@ -1,0 +1,34 @@
+<%- content_for :title do -%>My Shooters <ul>
+  <li><%= link_to "Add a New Shooter", new_my_shooter_path %></li>
+</ul><%- end -%>
+<div class="content">
+
+  <%- if @shooters.empty? -%>
+    <h3>Welcome to Shooter</h3>
+    
+    <p>You haven't added any shooters yet.</p>
+    
+    <p>A Shooter is simply a payload container. You can post a single payload at a time, and you'll be notified when this happens.</p>
+    
+    <p>To get started, <%= link_to "Add a New Shooter", new_my_shooter_path %>.</p>
+  <%- else -%>
+    <table>
+      <tr class="headings">
+        <th>Name</th>
+        <th>Has Payload?</th>
+        <th class="actions">&nbsp;</th>
+      </tr>
+    
+      <%- @shooters.each do |shooter| -%>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td><%= link_to shooter.name, [:my, shooter] %></td>
+          <td><%= link_to (shooter.payload.blank? ? 'No' : "Yes"), [:my, shooter]  %></td>
+          <td><%= link_to "Delete", [:my, shooter], :method => :delete, :class => 'delete', :confirm => "Are you sure?" %></td>
+        </tr>
+      <%- end -%>
+    
+    </table>
+  
+    <%= will_paginate %>
+  <%- end -%>
+</div>

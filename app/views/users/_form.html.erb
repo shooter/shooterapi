@@ -1,0 +1,11 @@
+<% form_for @user do |f| -%>
+  
+  <%= f.error_messages %>
+
+  <fieldset>
+    <%= f.label :email %> <%= f.text_field :email %> <br/>
+    <%= f.label :password %> <%= f.password_field :password %> <br/>  
+  </fieldset>
+  
+  <%= f.submit "Ok, Sign me up" %>
+<% end -%>
