@@ -49,13 +49,4 @@ class My::ShootersController < ApplicationController
     redirect_to my_shooters_path
   end
   
-protected
-
-  def collection
-    @shooters ||= end_of_association_chain.paginate(:page => params[:page])
-  end
-
-  def begin_of_method_chain
-    current_user
-  end
 end
