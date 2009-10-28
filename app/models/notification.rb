@@ -9,7 +9,7 @@ class Notification < ActionMailer::Base
   end
 
   def setup_email
-    from "Shooter <noreply@shooter.heroku.com>"
+    from "Shooter <noreply@shooterapi.com>"
   end
   
 
