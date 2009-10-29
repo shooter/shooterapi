@@ -2,7 +2,7 @@ class Notification < ActionMailer::Base
 
   def notification(shooter)
     setup_email
-    subject "Shooter Notification"
+    subject "[#{shooter.name}] Shooter Notification"
     recipients shooter.user.email
     sent_on Time.now
     body :shooter => shooter
