@@ -78,7 +78,7 @@
           
           <p><blockquote><code>curl -X PUT -d "payload=test payload" <%= api_shooter_url(@shooter) %></code></blockquote></p>
         <%- else -%>
-          <%= simple_format @shooter.payload %>
+          <%= simple_format h(@shooter.payload) %>
         <%- end -%>
       </div>
   </div>
